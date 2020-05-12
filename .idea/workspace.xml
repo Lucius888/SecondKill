@@ -1,57 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="86be132c-78bd-4d97-8389-b173f384c899" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/bootstrap/css/bootstrap-theme.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/bootstrap/css/bootstrap-theme.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/bootstrap/css/bootstrap-theme.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/bootstrap/css/bootstrap-theme.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/bootstrap/css/bootstrap.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/bootstrap/css/bootstrap.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/bootstrap/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/bootstrap/css/bootstrap.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/bootstrap/fonts/glyphicons-halflings-regular.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/bootstrap/fonts/glyphicons-halflings-regular.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/bootstrap/fonts/glyphicons-halflings-regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/bootstrap/fonts/glyphicons-halflings-regular.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/bootstrap/fonts/glyphicons-halflings-regular.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/bootstrap/js/bootstrap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/bootstrap/js/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/bootstrap/js/npm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/goods_detail.htm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/img/bg.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/img/bg2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/img/iphone8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/img/iphonex.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/img/meta10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/img/mi6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/img/stress-test/goodsList_test_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/img/stress-test/goodsList_test_3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/img/stress-test/goodslist_test_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/img/stress-test/optimised_goodslist.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/img/stress-test/optimised_userinfo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/img/stress-test/redist_test_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/img/stress-test/userinfo_test_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/img/stress-test/userinfo_test_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/img/stress-test/userinfo_test_4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/img/stress-test/userinfo_test_5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/jquery-validation/additional-methods.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/jquery-validation/jquery.validate.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/jquery-validation/localization/messages_zh.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/common.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/md5.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/layer/layer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/layer/mobile/layer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/layer/mobile/need/layer.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/layer/skin/default/icon-ext.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/layer/skin/default/icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/layer/skin/default/layer.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/layer/skin/default/loading-0.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/layer/skin/default/loading-1.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/layer/skin/default/loading-2.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/order_detail.htm" afterDir="false" />
-    </list>
+    <list default="true" id="86be132c-78bd-4d97-8389-b173f384c899" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +58,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1589271542297</updated>
-      <workItem from="1589271545466" duration="308000" />
+      <workItem from="1589271545466" duration="637000" />
     </task>
     <servers />
   </component>
