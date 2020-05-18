@@ -1,12 +1,16 @@
 package com.lucius.secondkill;
 
-import com.lucius.secondkill.entity.User;
+import com.lucius.secondkill.dao.SkUserDao;
+import com.lucius.secondkill.entity.SkUser;
 import com.lucius.secondkill.redis.UserKey;
-import com.lucius.secondkill.result.Result;
 import com.lucius.secondkill.util.RedisUtil;
+import org.apache.shiro.crypto.hash.SimpleHash;
+import org.apache.shiro.util.ByteSource;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import javax.annotation.Resource;
 
 @SpringBootTest
 class SecondkillApplicationTests {
@@ -14,16 +18,21 @@ class SecondkillApplicationTests {
 
     @Autowired
     RedisUtil redisUtil;
+    @Resource
+    SkUserDao skUserDao;
 
     @Test
     public void test() {
-        User user = new User(5, "555");
-        boolean f = redisUtil.set(UserKey.getById, "5", user);
-        User user1 = redisUtil.get(UserKey.getById, "5", User.class);
-        System.out.println(user1.toString());
-        System.out.println(Result.success(user1));
+//        SkUser skUser=skUserDao.queryById(Long.parseLong("15972100306"));
+//        System.out.println(skUser.toString());
+
+        ByteSource salt = ByteSource.Util.bytes("lucius");
+        String encodePassword = new SimpleHash("MD5", "luo123", salt, 1024).toHex();
+        System.out.println(encodePassword);
+
 
     }
+
 
 
 }
