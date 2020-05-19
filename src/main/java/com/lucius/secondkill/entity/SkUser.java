@@ -1,5 +1,9 @@
 package com.lucius.secondkill.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.Date;
 import java.io.Serializable;
 
@@ -9,6 +13,9 @@ import java.io.Serializable;
  * @author makejava
  * @since 2020-05-18 13:50:32
  */
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 public class SkUser implements Serializable {
     /**
     * 用户id
@@ -44,82 +51,4 @@ public class SkUser implements Serializable {
     */
     private Integer loginCount;
 
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNickname() {
-        return nickname;
-    }
-
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getSalt() {
-        return salt;
-    }
-
-    public void setSalt(String salt) {
-        this.salt = salt;
-    }
-
-    public String getHead() {
-        return head;
-    }
-
-    public void setHead(String head) {
-        this.head = head;
-    }
-
-    public Date getRegisterDate() {
-        return registerDate;
-    }
-
-    public void setRegisterDate(Date registerDate) {
-        this.registerDate = registerDate;
-    }
-
-    public Date getLastLoginDate() {
-        return lastLoginDate;
-    }
-
-    public void setLastLoginDate(Date lastLoginDate) {
-        this.lastLoginDate = lastLoginDate;
-    }
-
-    public Integer getLoginCount() {
-        return loginCount;
-    }
-
-    public void setLoginCount(Integer loginCount) {
-        this.loginCount = loginCount;
-    }
-
-    @Override
-    public String toString() {
-        return "SkUser{" +
-                "id=" + id +
-                ", nickname='" + nickname + '\'' +
-                ", password='" + password + '\'' +
-                ", salt='" + salt + '\'' +
-                ", head='" + head + '\'' +
-                ", registerDate=" + registerDate +
-                ", lastLoginDate=" + lastLoginDate +
-                ", loginCount=" + loginCount +
-                '}';
-    }
 }

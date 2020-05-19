@@ -1,6 +1,5 @@
 package com.lucius.secondkill.controller;
 
-import com.lucius.secondkill.entity.SkUser;
 import com.lucius.secondkill.service.SkUserService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.IncorrectCredentialsException;
@@ -32,7 +31,7 @@ public class SkUserController {
     /*
     登录跳转页面
      */
-    @GetMapping({"/", "/toLogin"})
+    @GetMapping({"/", "/login","/toLogin"})
     public String login(HttpSession session) {
         session.setAttribute("msg", "Please Login");
         return "login";
@@ -54,7 +53,6 @@ public class SkUserController {
 
         try {
             subject.login(token);
-
             return "redirect:/index";
         } catch (UnknownAccountException e) {
             session.setAttribute("msg", "用户名或密码错误");
@@ -75,7 +73,7 @@ public class SkUserController {
         Subject subject = SecurityUtils.getSubject();
         //获取绑定在当前subjuct的session
         Session session = subject.getSession();
-        return "goods_list";
+        return "redirect:/goods/to_list";
     }
 
 }
