@@ -1,6 +1,7 @@
 package com.lucius.secondkill.controller;
 
-import com.lucius.secondkill.service.SkUserService;
+import com.lucius.secondkill.service.Imp.SkUserService;
+import com.lucius.secondkill.util.RedisUtil;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
@@ -10,6 +11,7 @@ import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import org.apache.log4j.Logger;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -22,11 +24,15 @@ import javax.servlet.http.HttpSession;
  */
 @Controller
 public class SkUserController {
+    private static Logger log = Logger.getLogger(SkUserController.class);
     /**
      * 服务对象
      */
     @Resource
     private SkUserService skUserService;
+
+    @Resource
+    private RedisUtil redisUtil;
 
     /*
     登录跳转页面
@@ -73,7 +79,16 @@ public class SkUserController {
         Subject subject = SecurityUtils.getSubject();
         //获取绑定在当前subjuct的session
         Session session = subject.getSession();
-        return "redirect:/goods/to_list";
+
+        if(redisUtil.hasKey("shiro_redis_session:"+session.getId())){
+            //redis有此人登录信息,正常浏览
+            return "redirect:/goods/to_list";   }
+        else {
+            //redis查无此人,重新登录
+            session.setAttribute("msg", "用户信息失效，请重新登录");
+            return "login";
+        }
+
     }
 
 }

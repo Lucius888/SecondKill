@@ -1,5 +1,6 @@
 package com.lucius.secondkill.dao;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.lucius.secondkill.entity.SkUser;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;

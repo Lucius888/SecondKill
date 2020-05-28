@@ -1,5 +1,6 @@
 package com.lucius.secondkill.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,6 +17,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+//@JsonIgnoreProperties(value = {"handler"})
 public class SkUser implements Serializable {
     /**
     * 用户id

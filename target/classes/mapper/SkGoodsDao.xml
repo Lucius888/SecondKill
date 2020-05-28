@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lucius.secondkill.dao.SkGoodsDao">
 
-    <resultMap type="com.lucius.secondkill.vo.GoodsVo" id="SkGoodsMap">
+    <resultMap type="com.lucius.secondkill.entity.SkGoods" id="SkGoodsMap">
         <result property="id" column="id" jdbcType="INTEGER"/>
         <result property="goodsName" column="goods_name" jdbcType="VARCHAR"/>
         <result property="goodsTitle" column="goods_title" jdbcType="VARCHAR"/>
@@ -22,13 +22,10 @@
         select g.*, sg.stock_count, sg.start_date, sg.end_date, sg.seckill_price, sg.version from sk_goods_seckill sg left join sk_goods g on sg.goods_id = g.id
     </select>
 
-<!--    &lt;!&ndash;查询指定行数据&ndash;&gt;-->
-<!--    <select id="queryAllByLimit" resultMap="SkGoodsMap">-->
-<!--        select-->
-<!--          id, goods_name, goods_title, goods_img, goods_detail, goods_price, goods_stock-->
-<!--        from seckill.sk_goods-->
-<!--        limit #{offset}, #{limit}-->
-<!--    </select>-->
+    <!--查询指定行数据-->
+    <select id="queryGoodsById" resultMap="SkGoodsMap">
+        select g.*, sg.stock_count, sg.start_date, sg.end_date, sg.seckill_price, sg.version  from sk_goods_seckill sg left join sk_goods g  on sg.goods_id = g.id where g.id = #{goodsId}
+    </select>
 
 <!--    &lt;!&ndash;通过实体作为筛选条件查询&ndash;&gt;-->
 <!--    <select id="queryAll" resultMap="SkGoodsMap">-->

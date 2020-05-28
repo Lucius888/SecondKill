@@ -11,18 +11,18 @@
 package com.lucius.secondkill.dao;
 
 import com.lucius.secondkill.entity.SkGoods;
-import com.lucius.secondkill.vo.GoodsVo;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
 @Mapper
 public interface SkGoodsDao {
 
-    List<GoodsVo> listGoodsVo();
+    List<SkGoods> listGoodsVo();
+
+    SkGoods queryGoodsById(long goodsId);
+
+
 
 //    @Select("select g.*, sg.stock_count, sg.start_date, sg.end_date, sg.seckill_price, sg.version  from sk_goods_seckill sg left join sk_goods g  on sg.goods_id = g.id where g.id = #{goodsId}")
 //    GoodsVo getGoodsVoByGoodsId(@Param("goodsId") long goodsId);

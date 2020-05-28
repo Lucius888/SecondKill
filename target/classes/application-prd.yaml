@@ -7,6 +7,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
 
+
     initialSize: 5
     minIdle: 5
     maxActive: 20
@@ -19,34 +20,59 @@ spring:
     testOnReturn: false
     poolPreparedStatements: true
 
-   filters: stat,wall,log4j
+    filters: stat,wall,log4j
     maxPoolPreparedStatementPerConnectionSize: 20
     useGlobalDataSourceStat: true
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
 
-#thymeleaf
+  #thymeleaf
   thymeleaf:
     cache: false
-#redis
+  #redis
   redis:
     host: 121.199.14.138
     port: 6379
     password: 123456
+    # 连接超时时间（ms）
+    timeout: 50000
+    # Redis默认情况下有16个分片，这里配置具体使用的分片，默认是0
     database: 0
-    jedis:
+    lettuce:
       pool:
-        max-active: 1000
+        # 连接池最大连接数（使用负值表示没有限制） 默认 8
+        max-active: 100
+        # 连接池最大阻塞等待时间（使用负值表示没有限制） 默认 -1
+        max-wait: -1
+        # 连接池中的最大空闲连接 默认 8
+        max-idle: 8
+        # 连接池中的最小空闲连接 默认 0
+        min-idle: 0
 
-        max-wait: 500
+  jackson:
+    serialization:
+      FAIL_ON_EMPTY_BEANS: false
+#  cache:
+#    #缓存的名称集合
+#    cache-names: user
+#    # 缓存的类型
+#    type: redis
+#    redis:
+#      # 是否缓存null数据，默认是false
+#      cache-null-values: false
+#      # redis缓存失效时间 默认60000ms 十分钟
+#      time-to-live: 180000
+#      # 缓存数据key是否使用前缀 默认是true
+#      use-key-prefix: true
+#      # 缓存数据key的前缀
+#      # key-prefix: User
 
-        max-idle: 500
 
-    timeout: 10
+
 
 #mybatis
 mybatis:
   mapper-locations: classpath:/mapper/*Dao.xml
-  typeAliasesPackage: com.lucius.entity
+  typeAliasesPackage: com.lucius.secondkill.entity
 
 
 
@@ -56,4 +82,5 @@ session:
 
 
 server:
-  port: 8081
+  port: 8080
+

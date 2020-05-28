@@ -11,7 +11,7 @@
 package com.lucius.secondkill.config;
 
 import com.lucius.secondkill.entity.SkUser;
-import com.lucius.secondkill.service.SkUserService;
+import com.lucius.secondkill.service.Imp.SkUserService;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;

@@ -22,9 +22,9 @@
 
 <div class="panel panel-default">
     <div class="panel-heading">秒杀商品详情</div>
-    <div class="panel-body">
-        <span th:if="${secUser eq null}"> 您还没有登录，请登陆后再操作<br/></span>
-    </div>
+<!--    <div class="panel-body">-->
+<!--        <span th:if="${secUser eq null}"> 您还没有登录，请登陆后再操作<br/></span>-->
+<!--    </div>-->
     <table class="table" id="goodslist">
         <tr>
             <td>商品名称</td>
@@ -45,12 +45,20 @@
                 <span th:if="${seckillStatus eq 1}">秒杀进行中</span>
                 <span th:if="${seckillStatus eq 2}">秒杀已结束</span>
             </td>
-            <td>
-                <span th:if="${seckillStatus eq 0}"><span id="countDown"
-                                                          th:text="${remainSeconds}"></span>秒</span>
+                <div th:switch="${seckillStatus}">
+                    <p th:case="0">
+                        </span>距离秒杀开始还有：</span>
+                        <span id="countDown" th:text="${remainSeconds}"></span>秒</span>
+                    </p>
+                    <p th:case="1">
+                        </span>距离秒杀结束还有：</span>
+                        <span id="countDown1" th:text="${remainSeconds}"></span>秒</span>
+                    </p>
+                </div>
+
             </td>
             <td>
-                <form id="seckillForm" method="post" action="/seckill/do_seckill">
+                <form id="seckillForm" method="post" action="/seckill/do_seckill" th:if="${seckillStatus eq 1}">
                     <button class="btn btn-primary btn-block" type="submit" id="buyButton">立即秒杀</button>
                     <input type="hidden" name="goodsId" th:value="${goods.id}"/>
                 </form>
