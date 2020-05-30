@@ -20,6 +20,7 @@ import org.crazycake.shiro.RedisManager;
 import org.crazycake.shiro.RedisSessionDAO;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
@@ -29,6 +30,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 @Configuration
+@EnableCaching
 public class ShiroConfig {
     private static Logger logger = Logger.getLogger(ShiroConfig.class);
     @Value("${spring.redis.host}")
@@ -64,6 +66,8 @@ public class ShiroConfig {
 //        filterMap.put("/admin/logout", "logout");
 
         filterMap.put("/index", "authc");
+        filterMap.put("/goods/**", "authc");
+
 
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterMap);
         return shiroFilterFactoryBean;
@@ -135,6 +139,12 @@ public class ShiroConfig {
     public DefaultWebSessionManager sessionManager() {
         DefaultWebSessionManager sessionManager = new DefaultWebSessionManager();
         sessionManager.setSessionDAO(redisSessionDAO());
+        // 删除过期的session
+        sessionManager.setDeleteInvalidSessions(true);
+        // 去掉URL中的JSESSIONID
+        sessionManager.setSessionIdUrlRewritingEnabled(false);
+        // 是否定时检查session
+        sessionManager.setSessionValidationSchedulerEnabled(true);
         return sessionManager;
     }
 

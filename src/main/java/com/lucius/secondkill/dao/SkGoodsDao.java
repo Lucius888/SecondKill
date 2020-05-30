@@ -18,7 +18,7 @@ import java.util.List;
 @Mapper
 public interface SkGoodsDao {
 
-    List<SkGoods> listGoodsVo();
+    List<SkGoods> listGoods();
 
     SkGoods queryGoodsById(long goodsId);
 

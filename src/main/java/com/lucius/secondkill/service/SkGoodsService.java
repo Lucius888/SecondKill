@@ -17,7 +17,10 @@ import java.util.List;
 public interface SkGoodsService {
 
 
-    List<SkGoods> listGoodsVo();
+    //获取商品列表
+    List<SkGoods> listGoods();
 
+
+    //根据商品Id获取商品
     SkGoods getGoodsByGoodsId(long goodsId);
 }

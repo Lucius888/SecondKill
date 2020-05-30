@@ -1149,37 +1149,25 @@ goods_id</ColNames>
       <DataType>varchar(32)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="276" parent="237" name="salt">
+    <column id="276" parent="237" name="register_date">
       <Position>4</Position>
-      <Comment>混淆盐</Comment>
-      <DataType>varchar(10)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="277" parent="237" name="head">
-      <Position>5</Position>
-      <Comment>头像，云存储的ID</Comment>
-      <DataType>varchar(128)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="278" parent="237" name="register_date">
-      <Position>6</Position>
       <Comment>注册时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="279" parent="237" name="last_login_date">
-      <Position>7</Position>
+    <column id="277" parent="237" name="last_login_date">
+      <Position>5</Position>
       <Comment>上次登录时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="280" parent="237" name="login_count">
-      <Position>8</Position>
+    <column id="278" parent="237" name="login_count">
+      <Position>6</Position>
       <Comment>登录次数</Comment>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="281" parent="237" name="PRIMARY">
+    <key id="279" parent="237" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>

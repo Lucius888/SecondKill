@@ -1,31 +1,38 @@
 package com.lucius.secondkill;
 
-import com.lucius.secondkill.dao.SkUserDao;
+import com.lucius.secondkill.entity.SkGoods;
+import com.lucius.secondkill.entity.SkUser;
+import com.lucius.secondkill.service.SkGoodsService;
+import com.lucius.secondkill.service.SkUserService;
 import com.lucius.secondkill.util.RedisUtil;
-
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
-import javax.annotation.Resource;
+import java.util.List;
 
 @SpringBootTest
-class SecondkillApplicationTests {
+@RunWith(SpringRunner.class)
+public class SecondkillApplicationTests {
 
 
     @Autowired
     RedisUtil redisUtil;
-    @Resource
-    SkUserDao skUserDao;
+    @Autowired
+    SkUserService skUserService;
+    @Autowired
+    SkGoodsService skGoodsService;
 
     @Test
+
     public void test() {
-//        SkUser skUser=skUserDao.queryById(Long.parseLong("15972100306"));
-//        System.out.println(skUser.toString());
-        redisUtil.set("name", "lucius");
-        System.out.println(redisUtil.get("name"));
 
-
+        List<SkGoods> goodsList = skGoodsService.listGoods();
+        System.out.println(goodsList.toString());
+        SkUser skUser = skUserService.queryUserById(15972100306L);
+        System.out.println(skUser.toString());
     }
 
 

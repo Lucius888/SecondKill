@@ -6,17 +6,15 @@
         <result property="id" column="id" jdbcType="INTEGER"/>
         <result property="nickname" column="nickname" jdbcType="VARCHAR"/>
         <result property="password" column="password" jdbcType="VARCHAR"/>
-        <result property="salt" column="salt" jdbcType="VARCHAR"/>
-        <result property="head" column="head" jdbcType="VARCHAR"/>
         <result property="registerDate" column="register_date" jdbcType="TIMESTAMP"/>
         <result property="lastLoginDate" column="last_login_date" jdbcType="TIMESTAMP"/>
         <result property="loginCount" column="login_count" jdbcType="INTEGER"/>
     </resultMap>
 
     <!--查询单个-->
-    <select id="queryById" resultMap="SkUserMap">
+    <select id="queryUserById" resultMap="SkUserMap">
         select
-          id, nickname, password, salt, head, register_date, last_login_date, login_count
+          id, nickname, password,  register_date, last_login_date, login_count
         from seckill.sk_user
         where id = #{id}
     </select>

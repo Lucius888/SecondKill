@@ -55,16 +55,16 @@ spring:
   jackson:
     serialization:
       FAIL_ON_EMPTY_BEANS: false
-#  cache:
+  cache:
 #    #缓存的名称集合
 #    cache-names: user
-#    # 缓存的类型
-#    type: redis
-#    redis:
-#      # 是否缓存null数据，默认是false
-#      cache-null-values: false
-#      # redis缓存失效时间 默认60000ms 十分钟
-#      time-to-live: 180000
+    # 缓存的类型
+    type: redis
+    redis:
+      # 是否缓存null数据，默认是false
+      cache-null-values: false
+      # redis缓存失效时间 默认60000ms 十分钟
+      time-to-live: 180000
 #      # 缓存数据key是否使用前缀 默认是true
 #      use-key-prefix: true
 #      # 缓存数据key的前缀

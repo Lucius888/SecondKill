@@ -1,19 +1,27 @@
 package com.lucius.secondkill.controller;
 
-import com.lucius.secondkill.service.Imp.SkUserService;
+import com.lucius.secondkill.entity.SkUser;
+import com.lucius.secondkill.service.SkUserService;
 import com.lucius.secondkill.util.RedisUtil;
+import org.apache.log4j.Logger;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import org.apache.log4j.Logger;
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 /**
@@ -24,20 +32,22 @@ import javax.servlet.http.HttpSession;
  */
 @Controller
 public class SkUserController {
-    private static Logger log = Logger.getLogger(SkUserController.class);
+    private static Logger logger = Logger.getLogger(SkUserController.class);
     /**
      * 服务对象
      */
-    @Resource
-    private SkUserService skUserService;
+
 
     @Resource
     private RedisUtil redisUtil;
 
+    @Autowired
+    private SkUserService skUserService;
+
     /*
     登录跳转页面
      */
-    @GetMapping({"/", "/login","/toLogin"})
+    @GetMapping({"/", "/login", "/toLogin"})
     public String login(HttpSession session) {
         session.setAttribute("msg", "Please Login");
         return "login";
@@ -48,7 +58,8 @@ public class SkUserController {
     */
     @RequestMapping({"/login"})
     public String adminIndex(
-            HttpSession session,
+            HttpServletRequest request,
+            Model model,
             @RequestParam("username") String username,
             @RequestParam("password") String password) {
         // 获取Subject对象
@@ -59,12 +70,19 @@ public class SkUserController {
 
         try {
             subject.login(token);
+            // 通过用户名到数据库查询用户信息
+            SkUser skUser = skUserService.queryUserById(Long.parseLong(username));
+            HttpSession session = request.getSession();
+            //把用户信息放到session中
+            session.setAttribute("User",skUser);
+            //存缓存实现session共享
+            redisUtil.set("User:Session:"+session.getId(),session);
             return "redirect:/index";
         } catch (UnknownAccountException e) {
-            session.setAttribute("msg", "用户名或密码错误");
+            model.addAttribute("msg", "用户名或密码错误");
             return "login";
         } catch (IncorrectCredentialsException e) {//密码错误
-            session.setAttribute("msg", "用户名或密码错误");
+            model.addAttribute("msg", "用户名或密码错误");
             return "login";
         }
     }
@@ -73,19 +91,16 @@ public class SkUserController {
 后台首页
  */
     @GetMapping({"/index", "/toIndex"})
-    public String index(HttpServletResponse response) {
+    public String index(HttpServletRequest request,Model model) {
         //登录成功后要对session做分布式管理
-        // 获取当前Subject对象
-        Subject subject = SecurityUtils.getSubject();
-        //获取绑定在当前subjuct的session
-        Session session = subject.getSession();
-
-        if(redisUtil.hasKey("shiro_redis_session:"+session.getId())){
+        //获取session中的User
+        SkUser skUser=(SkUser) request.getSession().getAttribute("User");
+        if (skUser!=null) {
             //redis有此人登录信息,正常浏览
-            return "redirect:/goods/to_list";   }
-        else {
+            return "redirect:/goods/to_list";
+        } else {
             //redis查无此人,重新登录
-            session.setAttribute("msg", "用户信息失效，请重新登录");
+            model.addAttribute("msg", "用户信息失效，请重新登录");
             return "login";
         }
 

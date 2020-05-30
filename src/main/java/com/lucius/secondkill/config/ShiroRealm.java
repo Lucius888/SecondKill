@@ -11,7 +11,8 @@
 package com.lucius.secondkill.config;
 
 import com.lucius.secondkill.entity.SkUser;
-import com.lucius.secondkill.service.Imp.SkUserService;
+import com.lucius.secondkill.service.SkUserService;
+import com.lucius.secondkill.util.RedisUtil;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
@@ -21,12 +22,28 @@ import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.context.annotation.Lazy;
+
+import javax.annotation.Resource;
 
 
+@EnableCaching
 public class ShiroRealm extends AuthorizingRealm {
 
+    @Resource
+    RedisUtil redisUtil;
+
+
+    /*
+    这个@Lazy注解折磨了我两天！
+    一直导致user无法正确缓存！
+    https://stackoverflow.com/questions/21512791/spring-service-with-cacheable-methods-gets-initialized-without-cache-when-autowi
+    https://segmentfault.com/q/1010000007100239
+     */
     @Autowired
-    private SkUserService skUserService;
+    @Lazy
+    SkUserService skUserService;
 
     /**
      * 授权
@@ -47,7 +64,7 @@ public class ShiroRealm extends AuthorizingRealm {
         String password = new String((char[]) token.getCredentials());
 
         // 通过用户名到数据库查询用户信息
-        SkUser skUser = skUserService.queryById(Long.parseLong(userName));
+        SkUser skUser = skUserService.queryUserById(Long.parseLong(userName));
         //没有此人，返回null,自动显示异常
         if (skUser == null) {
             return null;

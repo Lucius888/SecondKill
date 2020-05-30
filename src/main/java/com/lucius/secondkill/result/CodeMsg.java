@@ -28,6 +28,7 @@ public class CodeMsg {
     public static CodeMsg SECKILL_OVER = new CodeMsg(500500, "商品已经秒杀完毕");
     public static CodeMsg REPEATE_SECKILL = new CodeMsg(500501, "不能重复秒杀");
 
+
     private CodeMsg() {
     }
 

@@ -8,15 +8,11 @@
  */
 
 
-package com.lucius.secondkill.dao;
-
+package com.lucius.secondkill.service;
 
 import com.lucius.secondkill.entity.SkUser;
-import org.apache.ibatis.annotations.Mapper;
 
-@Mapper
-public interface SkUserDao {
+public interface SkUserService {
 
     SkUser queryUserById(long id);
-
 }

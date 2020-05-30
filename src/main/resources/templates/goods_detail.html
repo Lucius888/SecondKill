@@ -41,22 +41,16 @@
         <tr>
             <td id="seckillTip">
                 <input type="hidden" id="remainSeconds" th:value="${remainSeconds}"/>
-                <span th:if="${seckillStatus eq 0}">秒杀倒计时：</span>
-                <span th:if="${seckillStatus eq 1}">秒杀进行中</span>
+                <span th:if="${seckillStatus eq 0}">秒杀未开始：距离秒杀开始还有：</span>
+                <span th:if="${seckillStatus eq 1}">秒杀进行中，距离秒杀结束还有：</span>
                 <span th:if="${seckillStatus eq 2}">秒杀已结束</span>
             </td>
-                <div th:switch="${seckillStatus}">
-                    <p th:case="0">
-                        </span>距离秒杀开始还有：</span>
-                        <span id="countDown" th:text="${remainSeconds}"></span>秒</span>
-                    </p>
-                    <p th:case="1">
-                        </span>距离秒杀结束还有：</span>
-                        <span id="countDown1" th:text="${remainSeconds}"></span>秒</span>
-                    </p>
-                </div>
 
+            <td>
+                <span th:if="${seckillStatus eq 0 ||seckillStatus eq 1}">
+                    <span id="countDown" th:text="${remainSeconds}"></span>秒</span>
             </td>
+
             <td>
                 <form id="seckillForm" method="post" action="/seckill/do_seckill" th:if="${seckillStatus eq 1}">
                     <button class="btn btn-primary btn-block" type="submit" id="buyButton">立即秒杀</button>

@@ -25,7 +25,7 @@ import java.util.Map;
  * @Desc:
  */
 @Configuration
-//@AutoConfigureAfter(RedisAutoConfiguration.class)
+@EnableCaching
 public class RedisCacheConfig extends CachingConfigurerSupport {
     /**
      * Spring Cache 自定义key生成器，缓存数据时key生成策略
@@ -43,7 +43,7 @@ public class RedisCacheConfig extends CachingConfigurerSupport {
 //                sb.append(target.getClass().getSimpleName());
 //                sb.append('.');
                 sb.append(method.getName());
-                sb.append(':');
+//                sb.append(':');
                 for (Object obj : params) {
                     sb.append(obj.toString());
                 }
@@ -86,8 +86,8 @@ public class RedisCacheConfig extends CachingConfigurerSupport {
         //获取goods默认配置
         RedisCacheConfiguration goodsRedisCacheConfiguration = redisCacheConfiguration(Duration.ofHours(2L));
 
-        redisCacheConfigurationMap.put("user", userRedisCacheConfiguration);
         redisCacheConfigurationMap.put("goods", goodsRedisCacheConfiguration);
+        redisCacheConfigurationMap.put("user", userRedisCacheConfiguration);
 
         RedisCacheConfiguration defaultCacheConfig = RedisCacheConfiguration.defaultCacheConfig();
 
@@ -95,7 +95,6 @@ public class RedisCacheConfig extends CachingConfigurerSupport {
                 .cacheDefaults(defaultCacheConfig)
                 .withInitialCacheConfigurations(redisCacheConfigurationMap)
                 .build();
-
 
         return redisCacheManager;
     }
@@ -112,7 +111,6 @@ public class RedisCacheConfig extends CachingConfigurerSupport {
         om.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
         om.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
         jackson2JsonRedisSerializer.setObjectMapper(om);
-
 
         //String的序列化
         StringRedisSerializer stringRedisSerializer = new StringRedisSerializer();

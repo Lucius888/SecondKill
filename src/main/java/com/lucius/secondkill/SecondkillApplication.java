@@ -9,8 +9,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @SpringBootApplication
 //maxInactiveIntervalInSeconds: 设置Session失效时间，
 //使用Redis Session之后，原Boot的server.session.timeout属性不再生效
-@EnableRedisHttpSession(maxInactiveIntervalInSeconds = 86400*30)
-
+//@EnableRedisHttpSession(maxInactiveIntervalInSeconds = 86400*30)
+@EnableCaching
 public class SecondkillApplication {
 
     public static void main(String[] args) {
