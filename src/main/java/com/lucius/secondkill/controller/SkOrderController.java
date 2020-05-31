@@ -14,23 +14,6 @@ import javax.annotation.Resource;
  * @since 2020-05-29 20:44:52
  */
 @Controller
-@RequestMapping("skOrder")
 public class SkOrderController {
-    /**
-     * 服务对象
-     */
-    @Resource
-    private SkOrderService skOrderService;
-
-    /**
-     * 通过主键查询单条数据
-     *
-     * @param id 主键
-     * @return 单条数据
-     */
-    @GetMapping("selectOne")
-    public SkOrder selectOne(Long id) {
-        return this.skOrderService.queryById(id);
-    }
 
 }

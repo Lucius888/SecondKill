@@ -2,54 +2,44 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="86be132c-78bd-4d97-8389-b173f384c899" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/sql/seckill.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/controller/SkOrderController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/dao/SkOrderDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/entity/SkOrder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/service/SkOrderService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/service/SkUserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/service/impl/SkOrderServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/service/impl/SkUserServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/util/ValidUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/SkOrderDao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/controller/SecKillController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/dao/SkOrderInfoDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/entity/SkOrderInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/service/SecKillService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/service/impl/SecKillServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/SkOrderInfoDao.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/SecondkillApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/SecondkillApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/config/RedisCacheConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/config/RedisCacheConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/config/ShiroConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/config/ShiroConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/config/ShiroRealm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/config/ShiroRealm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/controller/SkGoodsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/controller/SkGoodsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/controller/SkUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/controller/SkUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/controller/SkOrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/controller/SkOrderController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/dao/SkGoodsDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/dao/SkGoodsDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/dao/SkUserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/dao/SkUserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/entity/SkUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/entity/SkUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/result/CodeMsg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/result/CodeMsg.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/service/Imp/SkGoodsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/service/impl/SkGoodsServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/service/Imp/SkUserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/dao/SkOrderDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/dao/SkOrderDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/service/SkGoodsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/service/SkGoodsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/service/SkOrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/service/SkOrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/service/impl/SkGoodsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/service/impl/SkGoodsServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/service/impl/SkOrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/service/impl/SkOrderServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-dev.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/SkGoodsDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/SkGoodsDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/SkOrderDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/SkOrderDao.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/SkUserDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/SkUserDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/goods_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/goods_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/lucius/secondkill/SecondkillApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/lucius/secondkill/SecondkillApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/order_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/order_detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application-dev.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/SecondkillApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/SecondkillApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/config/RedisCacheConfig$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/config/RedisCacheConfig$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/config/RedisCacheConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/config/RedisCacheConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/config/ShiroConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/config/ShiroConfig.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/config/ShiroRealm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/config/ShiroRealm.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/controller/SkGoodsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/controller/SkGoodsController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/controller/SkUserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/controller/SkUserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/controller/SkOrderController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/controller/SkOrderController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/dao/SkGoodsDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/dao/SkGoodsDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/dao/SkUserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/dao/SkUserDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/entity/SkUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/entity/SkUser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/result/CodeMsg.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/result/CodeMsg.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/service/Imp/SkGoodsService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/service/Imp/SkUserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/dao/SkOrderDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/dao/SkOrderDao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/service/SkGoodsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/service/SkGoodsService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/service/SkOrderService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/service/SkOrderService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/service/impl/SkGoodsServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/service/impl/SkGoodsServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/service/impl/SkOrderServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/service/impl/SkOrderServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/service/impl/SkUserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/service/impl/SkUserServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/mapper/SkGoodsDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/SkGoodsDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/SkOrderDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/SkOrderDao.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/mapper/SkUserDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/SkUserDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/goods_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/goods_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/lucius/secondkill/SecondkillApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/lucius/secondkill/SecondkillApplicationTests.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -94,16 +84,13 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="AnnotationType" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="dummy://restClient/response3.html" root0="SKIP_INSPECTION" />
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
@@ -125,7 +112,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Fork/b2strysk/seckill-master" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Fork/Seckill-master" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="project.propCompiler" />
   </component>
@@ -339,7 +326,8 @@
       <workItem from="1589880559335" duration="12515000" />
       <workItem from="1589967584841" duration="26632000" />
       <workItem from="1590655413848" duration="9091000" />
-      <workItem from="1590669817248" duration="42090000" />
+      <workItem from="1590669817248" duration="43505000" />
+      <workItem from="1590890243010" duration="15143000" />
     </task>
     <servers />
   </component>

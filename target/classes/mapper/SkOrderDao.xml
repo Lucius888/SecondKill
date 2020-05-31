@@ -10,11 +10,8 @@
     </resultMap>
 
     <!--查询单个-->
-    <select id="queryById" resultMap="SkOrderMap">
-        select
-          id, user_id, order_id, goods_id
-        from seckill.sk_order
-        where id = #{id}
+    <select id="queryOrderByUserIdAndGoodsId" resultMap="SkOrderMap">
+        select * from sk_order where user_id = #{userId} and goods_id = #{goodsId}
     </select>
 
     <!--查询指定行数据-->

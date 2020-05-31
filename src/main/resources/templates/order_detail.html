@@ -22,46 +22,109 @@
 <div class="panel panel-default">
   <div class="panel-heading">恭喜你成功秒杀到商品，现在已进入秒杀订单详情</div>
   <table class="table" id="goodslist">
-        <tr>  
-        <td>商品名称</td>  
-        <td th:text="${goods.goodsName}" colspan="3"></td> 
-     </tr>  
-     <tr>  
-        <td>商品图片</td>  
-        <td colspan="2"><img th:src="@{${goods.goodsImg}}" width="200" height="200" /></td>  
-     </tr>
-      <tr>  
-        <td>订单价格</td>  
-        <td colspan="2" th:text="${orderInfo.goodsPrice}"></td>  
+        <tr>
+        <td>商品名称</td>
+        <td th:text="${goods.goodsName}" colspan="3"></td>
      </tr>
      <tr>
-     		<td>下单时间</td>  
-        	<td th:text="${#dates.format(orderInfo.createDate, 'yyyy-MM-dd HH:mm:ss')}" colspan="2"></td>  
+        <td>商品图片</td>
+        <td colspan="2"><img th:src="@{${goods.goodsImg}}" width="200" height="200" /></td>
+     </tr>
+      <tr>
+        <td>订单价格</td>
+        <td colspan="2" th:text="${orderinfo.goodsPrice}"></td>
      </tr>
      <tr>
-     	<td>订单状态</td>  
+     		<td>下单时间</td>
+        	<td th:text="${#dates.format(orderinfo.createDate, 'yyyy-MM-dd HH:mm:ss')}" colspan="2"></td>
+     </tr>
+     <tr>
+     	<td>订单状态</td>
         <td >
-        	<span th:if="${orderInfo.status eq 0}">未支付</span>
-        	<span th:if="${orderInfo.status eq 1}">待发货</span>
-        	<span th:if="${orderInfo.status eq 2}">已发货</span>
-        	<span th:if="${orderInfo.status eq 3}">已收货</span>
-        	<span th:if="${orderInfo.status eq 4}">已退款</span>
-        	<span th:if="${orderInfo.status eq 5}">已完成</span>
-        </td>  
+        	<span th:if="${orderinfo.status eq 0}">未支付</span>
+        	<span th:if="${orderinfo.status eq 1}">待发货</span>
+        	<span th:if="${orderinfo.status eq 2}">已发货</span>
+        	<span th:if="${orderinfo.status eq 3}">已收货</span>
+        	<span th:if="${orderinfo.status eq 4}">已退款</span>
+        	<span th:if="${orderinfo.status eq 5}">已完成</span>
+        </td>
         <td>
         	<button class="btn btn-primary btn-block" type="submit" id="payButton">立即支付</button>
         </td>
      </tr>
       <tr>
-     		<td>收货人</td>  
-        	<td colspan="2">延宇振  18812151525</td>
+     		<td>收货人</td>
+        	<td colspan="2">Lucius</td>
      </tr>
      <tr>
-     		<td>收货地址</td>  
-        	<td colspan="2">广东省广州市</td>
+     		<td>收货地址</td>
+        	<td colspan="2">我爱武汉！</td>
      </tr>
   </table>
 </div>
 
 </body>
 </html>
+<!--<!DOCTYPE html>-->
+<!--&lt;!&ndash; 使用thymeleaf，配置相应的 &ndash;&gt;-->
+<!--<html xmlns:th="http://www.thymeleaf.org">  &lt;!&ndash; th!!! 命名空间使用 &ndash;&gt;-->
+<!--<head>-->
+<!--    <meta charset="UTF-8"/>&lt;!&ndash;<meta charset="UTF-8" />  thymeleaf模板引擎默认是Template modes:HTML5解析的，所以解析比较严格。  &ndash;&gt;-->
+<!--    <title>订单详情</title>-->
+<!--    &lt;!&ndash; thymeleaf引入静态资源的方式，@加大括弧    "/" 代表static路径&ndash;&gt;-->
+<!--    &lt;!&ndash; jquery &ndash;&gt;-->
+<!--    &lt;!&ndash; <script type="text/javascript" th:src="@{/js/jequery.min.js}"></script> &ndash;&gt;-->
+<!--    <script type="text/javascript" th:src="@{/jquery-validation/lib/jquery-1.11.1.js}"></script>-->
+<!--    &lt;!&ndash; bootstrap &ndash;&gt;-->
+<!--    &lt;!&ndash; <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous"/>-->
+<!--     &ndash;&gt;-->
+<!--    <link type="text/css" rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.css}"/>-->
+<!--    <script type="text/javascript" th:src="@{/bootstrap/js/bootstrap.min.js}"></script>-->
+
+<!--</head>-->
+<!--<body>-->
+<!--<div class="panel panel-default">-->
+<!--    <div class="panel-heading">秒杀订单详情</div>-->
+<!--    <table class="table" id="goodslist">-->
+<!--        <tr>-->
+<!--            <td>商品名称</td>-->
+<!--            <td colspan="3" th:text="${goods.goodsName}"></td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td>商品图片</td>-->
+<!--            <td colspan="2"><img th:src="@{${goods.goodsImg}}" width="80" height="60"></img></td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td>订单原价</td>-->
+<!--            <td colspan="3" th:text="${orderinfo.goodsPrice}"></td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td>下单时间</td>-->
+<!--            <td th:text="${#dates.format(orderinfo.createDate,'yyyy-MM-dd HH:mm:ss')}" colspan="2"></td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td>订单状态</td>-->
+<!--            <td>&lt;!&ndash; 根据数值，做显示判断 &ndash;&gt;-->
+<!--                <span th:if="${orderinfo.status eq 0}">未支付</span>-->
+<!--                <span th:if="${orderinfo.status eq 1}">代发货</span>-->
+<!--                <span th:if="${orderinfo.status eq 2}">已发货</span>-->
+<!--                <span th:if="${orderinfo.status == 3}">已收货</span>-->
+<!--                <span th:if="${orderinfo.status == 4}">已退款</span>-->
+<!--                <span th:if="${orderinfo.status == 5}">已完成</span>-->
+<!--            </td>-->
+<!--            <td>						&lt;!&ndash; 如果上面是未支付，那么下面会生成一个立即支付的按钮 &ndash;&gt;-->
+<!--                <button class="btn btn-primary btn-block" type="submit" id="payButton">立即支付</button>-->
+<!--            </td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td>收货人</td>-->
+<!--            <td colspan="2">Lucius</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td>收货地址</td>-->
+<!--            <td colspan="2">我爱武汉！</td>-->
+<!--        </tr>-->
+<!--    </table>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->

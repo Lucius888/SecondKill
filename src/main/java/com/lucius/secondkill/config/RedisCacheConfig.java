@@ -89,7 +89,8 @@ public class RedisCacheConfig extends CachingConfigurerSupport {
         redisCacheConfigurationMap.put("goods", goodsRedisCacheConfiguration);
         redisCacheConfigurationMap.put("user", userRedisCacheConfiguration);
 
-        RedisCacheConfiguration defaultCacheConfig = RedisCacheConfiguration.defaultCacheConfig();
+        //RedisCacheConfiguration defaultCacheConfig = RedisCacheConfiguration.defaultCacheConfig();
+        RedisCacheConfiguration defaultCacheConfig = redisCacheConfiguration(Duration.ofHours(1L));
 
         RedisCacheManager redisCacheManager = RedisCacheManager.builder(lettuceConnectionFactory)
                 .cacheDefaults(defaultCacheConfig)

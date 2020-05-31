@@ -64,6 +64,8 @@
     <insert id="insert" keyProperty="id" useGeneratedKeys="true">
         insert into seckill.sk_user(nickname, password, salt, head, register_date, last_login_date, login_count)
         values (#{nickname}, #{password}, #{salt}, #{head}, #{registerDate}, #{lastLoginDate}, #{loginCount})
+
+
     </insert>
 
     <!--通过主键修改数据-->

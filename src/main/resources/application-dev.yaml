@@ -65,10 +65,10 @@ spring:
       cache-null-values: false
       # redis缓存失效时间 默认60000ms 十分钟
       time-to-live: 180000
-#      # 缓存数据key是否使用前缀 默认是true
-#      use-key-prefix: true
-#      # 缓存数据key的前缀
-#      # key-prefix: User
+      # 缓存数据key是否使用前缀 默认是true
+      use-key-prefix: true
+      # 缓存数据key的前缀
+      # key-prefix: User
 
 
 

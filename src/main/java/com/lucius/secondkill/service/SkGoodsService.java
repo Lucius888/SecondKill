@@ -23,4 +23,8 @@ public interface SkGoodsService {
 
     //根据商品Id获取商品
     SkGoods getGoodsByGoodsId(long goodsId);
+
+
+    //减少商品库存
+    boolean reduceStock(SkGoods skGoods);
 }
