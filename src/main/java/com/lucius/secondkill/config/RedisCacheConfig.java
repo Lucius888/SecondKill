@@ -27,30 +27,30 @@ import java.util.Map;
 @Configuration
 @EnableCaching
 public class RedisCacheConfig extends CachingConfigurerSupport {
-    /**
-     * Spring Cache 自定义key生成器，缓存数据时key生成策略
-     *
-     * @return
-     */
-    @Bean
-    @Override
-//    自定义的缓存key的生成策略
-    public KeyGenerator keyGenerator() {
-        return new KeyGenerator() {
-            @Override
-            public Object generate(Object target, Method method, Object... params) {
-                StringBuffer sb = new StringBuffer();
-//                sb.append(target.getClass().getSimpleName());
-//                sb.append('.');
-                sb.append(method.getName());
-//                sb.append(':');
-                for (Object obj : params) {
-                    sb.append(obj.toString());
-                }
-                return sb.toString();
-            }
-        };
-    }
+//    /**
+//     * Spring Cache 自定义key生成器，缓存数据时key生成策略
+//     *
+//     * @return
+//     */
+//    @Bean
+//    @Override
+////    自定义的缓存key的生成策略
+//    public KeyGenerator keyGenerator() {
+//        return new KeyGenerator() {
+//            @Override
+//            public Object generate(Object target, Method method, Object... params) {
+//                StringBuffer sb = new StringBuffer();
+////                sb.append(target.getClass().getSimpleName());
+////                sb.append('.');
+//                sb.append(method.getName());
+////                sb.append(':');
+//                for (Object obj : params) {
+//                    sb.append(obj.toString());
+//                }
+//                return sb.toString();
+//            }
+//        };
+//    }
 
     //自定义缓存配置
     //duration 配置的是缓存过期时间，作为参数的原因是可以针对不同的缓存进行设置不同的缓存过期时间
@@ -116,14 +116,17 @@ public class RedisCacheConfig extends CachingConfigurerSupport {
         //String的序列化
         StringRedisSerializer stringRedisSerializer = new StringRedisSerializer();
 
+        GenericToStringSerializer genericToStringSerializer = new GenericToStringSerializer(Object.class);
+
         // key采用String的序列化方式
         redisTemplate.setKeySerializer(stringRedisSerializer);
         // hash的key也采用String的序列化方式
         redisTemplate.setHashKeySerializer(stringRedisSerializer);
         // value序列化方式采用jackson
-        redisTemplate.setValueSerializer(jackson2JsonRedisSerializer);
+        redisTemplate.setValueSerializer(genericToStringSerializer);
         // hash的value序列化方式采用jackson
         redisTemplate.setHashValueSerializer(jackson2JsonRedisSerializer);
+
         redisTemplate.afterPropertiesSet();
 
         return redisTemplate;

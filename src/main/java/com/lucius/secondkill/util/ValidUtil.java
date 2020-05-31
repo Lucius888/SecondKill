@@ -19,24 +19,24 @@ import org.springframework.stereotype.Component;
 @Component
 public class ValidUtil {
 
-    @Autowired
-    RedisUtil redisUtil;
-
-    public Boolean isValid() {
-        //登录成功后要对session做分布式管理
-        // 获取当前Subject对象
-        Subject subject = SecurityUtils.getSubject();
-        //获取绑定在当前subjuct的session
-        Session session = subject.getSession();
-
-        if (redisUtil.hasKey("shiro_redis_session:" + session.getId())) {
-            //redis有此人登录信息,正常浏览
-            return true;
-        } else {
-            return false;
-        }
-
-    }
+//    @Autowired
+//    RedisUtil redisUtil;
+//
+//    public Boolean isValid() {
+//        //登录成功后要对session做分布式管理
+//        // 获取当前Subject对象
+//        Subject subject = SecurityUtils.getSubject();
+//        //获取绑定在当前subjuct的session
+//        Session session = subject.getSession();
+//
+//        if (redisUtil.hasKey("shiro_redis_session:" + session.getId())) {
+//            //redis有此人登录信息,正常浏览
+//            return true;
+//        } else {
+//            return false;
+//        }
+//
+//    }
 
 
 }

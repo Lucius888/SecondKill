@@ -31,8 +31,6 @@ import javax.annotation.Resource;
 @EnableCaching
 public class ShiroRealm extends AuthorizingRealm {
 
-    @Resource
-    RedisUtil redisUtil;
 
 
     /*

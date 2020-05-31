@@ -32,11 +32,8 @@ import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class SecKillController {
-    @Resource
-    RedisUtil redisUtil;
 
-    @Resource
-    ValidUtil validUtil;
+
 
     @Autowired
     SkGoodsService skGoodsService;

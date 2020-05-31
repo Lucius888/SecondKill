@@ -25,7 +25,7 @@ public class SkGoodsServiceImpl implements SkGoodsService {
      * @return
      */
     @Override
-    @Cacheable(value = "goods")
+//    @Cacheable(value = "goods")
     public List<SkGoods> listGoods() {
         return skGoodsDao.listGoods();
     }

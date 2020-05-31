@@ -34,11 +34,7 @@ import java.util.List;
 @Controller
 public class SkGoodsController {
 
-    @Resource
-    RedisUtil redisUtil;
 
-    @Resource
-    ValidUtil validUtil;
 
     @Autowired
     SkGoodsService skGoodsService;

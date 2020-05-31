@@ -1,6 +1,8 @@
 package com.lucius.secondkill.controller;
 
 import com.lucius.secondkill.entity.SkUser;
+import com.lucius.secondkill.redis.RedisService;
+import com.lucius.secondkill.redis.UserKey;
 import com.lucius.secondkill.service.SkUserService;
 import com.lucius.secondkill.util.RedisUtil;
 import org.apache.log4j.Logger;
@@ -8,17 +10,13 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
-import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -39,7 +37,7 @@ public class SkUserController {
 
 
     @Resource
-    private RedisUtil redisUtil;
+    private RedisService redisService;
 
     @Autowired
     private SkUserService skUserService;
@@ -74,9 +72,9 @@ public class SkUserController {
             SkUser skUser = skUserService.queryUserById(Long.parseLong(username));
             HttpSession session = request.getSession();
             //把用户信息放到session中
-            session.setAttribute("User",skUser);
+            session.setAttribute("User", skUser);
             //存缓存实现session共享
-            redisUtil.set("User:Session:"+session.getId(),session);
+            redisService.set(UserKey.Session , session.getId(), session);
             return "redirect:/index";
         } catch (UnknownAccountException e) {
             model.addAttribute("msg", "用户名或密码错误");
@@ -91,11 +89,11 @@ public class SkUserController {
 后台首页
  */
     @GetMapping({"/index", "/toIndex"})
-    public String index(HttpServletRequest request,Model model) {
+    public String index(HttpServletRequest request, Model model) {
         //登录成功后要对session做分布式管理
         //获取session中的User
-        SkUser skUser=(SkUser) request.getSession().getAttribute("User");
-        if (skUser!=null) {
+        SkUser skUser = (SkUser) request.getSession().getAttribute("User");
+        if (skUser != null) {
             //redis有此人登录信息,正常浏览
             return "redirect:/goods/to_list";
         } else {
