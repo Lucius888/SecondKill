@@ -6,8 +6,6 @@ spring:
     url: jdbc:mysql://localhost:3306/seckill?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
-
-
     initialSize: 5
     minIdle: 5
     maxActive: 20
@@ -19,7 +17,6 @@ spring:
     testOnBorrow: false
     testOnReturn: false
     poolPreparedStatements: true
-
     filters: stat,wall,log4j
     maxPoolPreparedStatementPerConnectionSize: 20
     useGlobalDataSourceStat: true
@@ -28,11 +25,25 @@ spring:
   session:
     store-type: redis
 
-
   #thymeleaf
   thymeleaf:
+    #是否开启缓存，开发时可以设置为 false，默认为 true
     cache: false
-#redis
+#    #检查模版是否存在，默认为 true
+#    check-template: true
+#    #检查模版位置是否存在，默认为 true
+#    check-template-location: true
+    #模版文件编码
+    encoding: UTF-8
+#    #模版文件位置
+#    prefix: /templates/
+    servlet:
+      content-type: text/html
+    #模版文件后缀
+    suffix: .html
+
+
+  #redis
   redis:
     host: 121.199.14.138
     port: 6379
@@ -63,13 +74,10 @@ spring:
     redis:
       # 是否缓存null数据，默认是false
       cache-null-values: false
-      # redis缓存失效时间 默认60000ms 十分钟
-      time-to-live: 180000
+#      # redis缓存失效时间 默认60000ms 十分钟
+#      time-to-live: 180000
       # 缓存数据key是否使用前缀 默认是true
       use-key-prefix: true
-      # 缓存数据key的前缀
-      # key-prefix: User
-
 
 
 
@@ -78,11 +86,6 @@ mybatis:
   mapper-locations: classpath:/mapper/*Dao.xml
   typeAliasesPackage: com.lucius.secondkill.entity
 
-
-
-session:
-  redis:
-    expireTime:3600
 
 
 server:

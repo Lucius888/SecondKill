@@ -133,7 +133,7 @@ public class RedisService {
             if (seconds <= 0) {//永不过期
                 redisTemplate.opsForValue().set(realKey, str);
             } else {
-                redisTemplate.opsForValue().set(realKey, str, seconds);
+                redisTemplate.opsForValue().set(realKey, str, seconds, TimeUnit.SECONDS);
             }
             return true;
         } catch (Exception e) {

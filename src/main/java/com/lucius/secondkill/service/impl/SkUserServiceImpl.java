@@ -28,7 +28,6 @@ public class SkUserServiceImpl implements SkUserService {
 
 
     @Override
-//    @Cacheable(value = "user")
     public SkUser queryUserById(long id) {
         return skUserDao.queryUserById(id);
     }

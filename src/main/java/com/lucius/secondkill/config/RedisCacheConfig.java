@@ -81,16 +81,16 @@ public class RedisCacheConfig extends CachingConfigurerSupport {
     @Bean
     public RedisCacheManager cacheManager(LettuceConnectionFactory lettuceConnectionFactory) {
         Map<String, RedisCacheConfiguration> redisCacheConfigurationMap = new HashMap<>();
-        //获取user默认配置
-        RedisCacheConfiguration userRedisCacheConfiguration = redisCacheConfiguration(Duration.ofHours(1L));
-        //获取goods默认配置
-        RedisCacheConfiguration goodsRedisCacheConfiguration = redisCacheConfiguration(Duration.ofHours(2L));
+//        //获取user默认配置
+//        RedisCacheConfiguration userRedisCacheConfiguration = redisCacheConfiguration(Duration.ofHours(1L));
+//        //获取goods默认配置
+//        RedisCacheConfiguration goodsRedisCacheConfiguration = redisCacheConfiguration(Duration.ofHours(2L));
+//
+//        redisCacheConfigurationMap.put("goods", goodsRedisCacheConfiguration);
+//        redisCacheConfigurationMap.put("user", userRedisCacheConfiguration);
 
-        redisCacheConfigurationMap.put("goods", goodsRedisCacheConfiguration);
-        redisCacheConfigurationMap.put("user", userRedisCacheConfiguration);
-
-        //RedisCacheConfiguration defaultCacheConfig = RedisCacheConfiguration.defaultCacheConfig();
-        RedisCacheConfiguration defaultCacheConfig = redisCacheConfiguration(Duration.ofHours(1L));
+        RedisCacheConfiguration defaultCacheConfig = RedisCacheConfiguration.defaultCacheConfig();
+//        RedisCacheConfiguration defaultCacheConfig = redisCacheConfiguration(Duration.ofHours(1L));
 
         RedisCacheManager redisCacheManager = RedisCacheManager.builder(lettuceConnectionFactory)
                 .cacheDefaults(defaultCacheConfig)
