@@ -67,6 +67,8 @@ public class ShiroConfig {
 
         filterMap.put("/index", "authc");
         filterMap.put("/goods/**", "authc");
+        filterMap.put("/seckill/**", "authc");
+
 
 
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterMap);

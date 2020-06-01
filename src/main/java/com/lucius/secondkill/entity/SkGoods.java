@@ -19,6 +19,7 @@ import java.io.Serializable;
 public class SkGoods implements Serializable {
 
     private Long id;
+    private Long goodsId;
     private String goodsName;
     private String goodsTitle;
     private String goodsImg;

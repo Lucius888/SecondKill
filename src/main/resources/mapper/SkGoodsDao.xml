@@ -4,6 +4,7 @@
 
     <resultMap type="com.lucius.secondkill.entity.SkGoods" id="SkGoodsMap">
         <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="goodsId" column="goods_id" jdbcType="INTEGER"/>
         <result property="goodsName" column="goods_name" jdbcType="VARCHAR"/>
         <result property="goodsTitle" column="goods_title" jdbcType="VARCHAR"/>
         <result property="goodsImg" column="goods_img" jdbcType="VARCHAR"/>
@@ -30,13 +31,13 @@
 
     <!--减少库存-->
     <update id="reduceStock">
-        update seckill.sk_goods
+        update sk_goods_seckill
         <set>
-            <if test="goodsStock > 0">
-                goods_stock = goods_stock-1,
+            <if test="stockCount > 0">
+                stock_count = #{stockCount}-1
             </if>
         </set>
-        where id = #{id}
+        where goods_id = #{goodsId}
     </update>
 
 

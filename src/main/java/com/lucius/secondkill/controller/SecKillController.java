@@ -14,26 +14,31 @@ import com.lucius.secondkill.entity.SkGoods;
 import com.lucius.secondkill.entity.SkOrder;
 import com.lucius.secondkill.entity.SkOrderInfo;
 import com.lucius.secondkill.entity.SkUser;
+import com.lucius.secondkill.redis.GoodsKey;
+import com.lucius.secondkill.redis.OrderKey;
+import com.lucius.secondkill.redis.RedisService;
 import com.lucius.secondkill.result.CodeMsg;
 import com.lucius.secondkill.service.SecKillService;
 import com.lucius.secondkill.service.SkGoodsService;
 import com.lucius.secondkill.service.SkOrderService;
 import com.lucius.secondkill.service.SkUserService;
-import com.lucius.secondkill.util.RedisUtil;
-import com.lucius.secondkill.util.ValidUtil;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import javax.annotation.Resource;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.thymeleaf.context.WebContext;
+import org.thymeleaf.TemplateEngine;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 @Controller
 public class SecKillController {
 
-
+    @Autowired
+    TemplateEngine templateEngine;
 
     @Autowired
     SkGoodsService skGoodsService;
@@ -47,39 +52,61 @@ public class SecKillController {
     @Autowired
     SecKillService secKillService;
 
+    @Autowired
+    RedisService redisService;
+
     /**
      * 秒杀按钮跳转界面
      */
     @PostMapping(value = "/seckill/do_seckill")
+    @ResponseBody
     public String list(Model model,
-                       @RequestParam("goodsId") long goodsId ,
+                       HttpServletResponse response,
+                       @RequestParam("goodsId") long goodsId,
                        HttpServletRequest request) {
         //首先判断用户信息，失效就重新登录
-        SkUser user=(SkUser) request.getSession().getAttribute("User");
-        if (user==null) {
+        SkUser user = (SkUser) request.getSession().getAttribute("User");
+        if (user == null) {
             return "login";
         }
 
-        SkGoods skGoods=skGoodsService.getGoodsByGoodsId(goodsId);
+        //取页面缓存,取得是html的源码
+        String html = redisService.get(OrderKey.SeckillOrderByUidGidHtml, ""+"UID"+user.getId()+"&"+"GID"+goodsId, String.class);
+        //取到的话就直接返回
+        if (html != null) {
+            return html;
+        }
+
+        SkGoods skGoods = skGoodsService.getGoodsByGoodsId(goodsId);
         //判断商品库存，库存大于0，才进行操作，多线程下会出错
-        int  stockcount=skGoods.getStockCount();
-        if(stockcount<=0) {//失败			库存至临界值1的时候，此时刚好来了加入10个线程，那么库存就会-10
+        int stockcount = skGoods.getStockCount();
+        if (stockcount <= 0) {//失败			库存至临界值1的时候，此时刚好来了加入10个线程，那么库存就会-10
             model.addAttribute("errorMessage", CodeMsg.SECKILL_OVER);
             return "seckill_fail";
         }
 
         //判断这个秒杀订单形成没有，判断是否已经秒杀到了，避免一个账户秒杀多个商品
-        SkOrder order=skOrderService.queryOrderByUserIdAndGoodsId(user.getId(),goodsId);
-        if(order!=null) {//重复下单
+        SkOrder order = skOrderService.queryOrderByUserIdAndGoodsId(user.getId(), goodsId);
+        if (order != null) {//重复下单
             model.addAttribute("errorMessage", CodeMsg.REPEATE_SECKILL);
             return "seckill_fail";
         }
         //可以秒杀，原子操作：1.库存减1，2.下订单，3.写入秒杀订单--->是一个事务
-        SkOrderInfo orderinfo=secKillService.seckill(user,skGoods);
+        SkOrderInfo orderinfo = secKillService.seckill(user, skGoods);
         //如果秒杀成功，直接跳转到订单详情页上去。
         model.addAttribute("orderinfo", orderinfo);
         model.addAttribute("goods", skGoods);
         //没有做支付业务，当生成订单的时候就当作是已经秒杀到了。
-        return "order_detail";
+
+        // 2.手动渲染 使用模板引擎 templateName:模板名称 String templateName="goods_detail";
+        WebContext context = new WebContext(request, response,
+                request.getServletContext(), request.getLocale(), model.asMap());
+        html = templateEngine.process("order_detail", context);
+
+        // 将渲染好的html保存至缓存
+        if (!StringUtils.isEmpty(html)) {
+            redisService.set(OrderKey.SeckillOrderByUidGidHtml, ""+"UID"+user.getId()+"&"+"GID"+goodsId, html);
+        }
+        return html;
     }
 }

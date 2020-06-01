@@ -12,6 +12,7 @@ package com.lucius.secondkill.dao;
 
 import com.lucius.secondkill.entity.SkGoods;
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.context.annotation.Bean;
 
 import java.util.List;
 
@@ -23,6 +24,7 @@ public interface SkGoodsDao {
     SkGoods queryGoodsById(long goodsId);
 
     int reduceStock(SkGoods skGoods);
+
 
 
 //    @Select("select g.*, sg.stock_count, sg.start_date, sg.end_date, sg.seckill_price, sg.version  from sk_goods_seckill sg left join sk_goods g  on sg.goods_id = g.id where g.id = #{goodsId}")

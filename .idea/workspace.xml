@@ -2,21 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="86be132c-78bd-4d97-8389-b173f384c899" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/config/RedisCacheConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/config/RedisCacheConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/controller/SkGoodsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/controller/SkGoodsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/redis/GoodsKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/redis/GoodsKey.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/redis/RedisService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/redis/RedisService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/config/ShiroConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/config/ShiroConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/controller/SecKillController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/controller/SecKillController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/dao/SkGoodsDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/dao/SkGoodsDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/entity/SkGoods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/entity/SkGoods.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/redis/OrderKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/redis/OrderKey.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/service/impl/SkGoodsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/service/impl/SkGoodsServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/service/impl/SkUserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/service/impl/SkUserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-dev.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/goods_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/goods_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application-dev.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/config/RedisCacheConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/config/RedisCacheConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/controller/SkGoodsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/controller/SkGoodsController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/redis/GoodsKey.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/redis/GoodsKey.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/redis/RedisService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/redis/RedisService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/service/impl/SkOrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/service/impl/SkOrderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/SkGoodsDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/SkGoodsDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/config/ShiroConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/config/ShiroConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/controller/SecKillController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/controller/SecKillController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/service/impl/SkGoodsServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/service/impl/SkGoodsServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/service/impl/SkUserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/service/impl/SkUserServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/service/impl/SkOrderServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/service/impl/SkOrderServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/SkGoodsDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/SkGoodsDao.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -304,7 +302,7 @@
       <workItem from="1589967584841" duration="26632000" />
       <workItem from="1590655413848" duration="9091000" />
       <workItem from="1590669817248" duration="43505000" />
-      <workItem from="1590890243010" duration="36740000" />
+      <workItem from="1590890243010" duration="45486000" />
     </task>
     <servers />
   </component>

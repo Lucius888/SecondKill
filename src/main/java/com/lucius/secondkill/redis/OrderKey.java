@@ -8,5 +8,10 @@ public class OrderKey extends BasePrefix {
     public OrderKey(String prefix) {
         super(prefix);
     }
-    public static OrderKey getSeckillOrderByUidGid = new OrderKey("seckill");
+
+    private OrderKey(int expireSeconds, String prefix) {
+        super(expireSeconds, prefix);
+    }
+    public static OrderKey SeckillOrderByUidGid = new OrderKey(60,"SeckillOrder");
+    public static OrderKey SeckillOrderByUidGidHtml = new OrderKey(60,"SeckillOrderHtml");
 }

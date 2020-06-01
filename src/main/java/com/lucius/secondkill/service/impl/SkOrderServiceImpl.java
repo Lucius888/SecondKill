@@ -6,6 +6,8 @@ import com.lucius.secondkill.entity.SkOrder;
 import com.lucius.secondkill.dao.SkOrderDao;
 import com.lucius.secondkill.entity.SkOrderInfo;
 import com.lucius.secondkill.entity.SkUser;
+import com.lucius.secondkill.redis.OrderKey;
+import com.lucius.secondkill.redis.RedisService;
 import com.lucius.secondkill.service.SkOrderService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,13 +29,23 @@ public class SkOrderServiceImpl implements SkOrderService {
     @Resource
     private SkOrderInfoDao skOrderInfoDao;
 
+    @Resource
+    RedisService redisService;
+
     /**
      * 通过ID查询单条数据
 
      */
     @Override
     public SkOrder queryOrderByUserIdAndGoodsId(long userId, long goodsId) {
-        return this.skOrderDao.queryOrderByUserIdAndGoodsId(userId,goodsId);
+        SkOrder skOrder=redisService.get(OrderKey.SeckillOrderByUidGid,""+"UID"+userId+"&"+"GID"+goodsId,SkOrder.class);
+        if(skOrder==null){
+            skOrder=skOrderDao.queryOrderByUserIdAndGoodsId(userId,goodsId);
+            //入缓存
+            redisService.set(OrderKey.SeckillOrderByUidGid,""+"UID"+userId+"&"+"GID"+goodsId,skOrder);
+        }
+
+        return skOrder;
     }
 
 

@@ -63,14 +63,12 @@ public class SkGoodsServiceImpl implements SkGoodsService {
 
     @Override
     public boolean reduceStock(SkGoods skGoods) {
-        SkGoods sg = new SkGoods();
-        sg.setId(skGoods.getId());
+//        SkGoods sg = new SkGoods();
+//        sg.setId(skGoods.getId());
         //goods.setStockCount(goodsvo.getGoodsStock()-1);  sql里面去运算
         //goodsDao.reduceStock(goods.getGoodsId());
-        int ret = skGoodsDao.reduceStock(skGoods);
-        System.out.println("reduceStock1:" + ret);
-        return ret > 0;
-        //return true;
+        skGoodsDao.reduceStock(skGoods);
+        return true;
     }
 
 }
