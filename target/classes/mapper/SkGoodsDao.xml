@@ -34,10 +34,10 @@
         update sk_goods_seckill
         <set>
             <if test="stockCount > 0">
-                stock_count = #{stockCount}-1
+                stock_count = stock_count-1
             </if>
         </set>
-        where goods_id = #{goodsId}
+        where id = #{id}
     </update>
 
 

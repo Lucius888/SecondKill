@@ -16,6 +16,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 @Service
@@ -30,12 +31,12 @@ public class RedisService {
             return null;
         }
         Class<?> clazz = value.getClass();
-        if (clazz == int.class || clazz == Integer.class) {
-            return String.valueOf(value);
-        } else if (clazz == long.class || clazz == Long.class) {
-            return String.valueOf(value);
-        } else if (clazz == String.class) {
-            return (String) value;
+        if(clazz==int.class||clazz==Integer.class) {
+            return ""+value;
+        }else if(clazz==String.class) {
+            return ""+value;
+        }else if(clazz==long.class||clazz==Long.class) {
+            return ""+value;
         } else {
             return JSON.toJSONString(value);
         }
@@ -52,6 +53,8 @@ public class RedisService {
             return (T) Long.valueOf(str);
         } else if (clazz == String.class) {
             return (T) str;
+        }else if (clazz == List.class) {
+            return (T) JSON.parse(str);
         } else {
             return JSON.toJavaObject(JSON.parseObject(str), clazz);
         }
@@ -113,7 +116,7 @@ public class RedisService {
         //对key增加前缀，即可用于分类，也避免key重复
         String realKey = prefix.getPrefix() + key;
         if (realKey != null) {
-            String str = (String) redisTemplate.opsForValue().get(realKey);
+            String str =(String) (redisTemplate.opsForValue().get(realKey));
             T t = stringToBean(str, clazz);
             return t;
         } else {

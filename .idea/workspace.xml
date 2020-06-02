@@ -2,18 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="86be132c-78bd-4d97-8389-b173f384c899" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/config/ShiroConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/config/ShiroConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/.gitattributes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sql/seckill.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sql/seckill.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/config/RedisCacheConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/config/RedisCacheConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/controller/SecKillController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/controller/SecKillController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/controller/SkGoodsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/controller/SkGoodsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/dao/SkGoodsDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/dao/SkGoodsDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/entity/SkGoods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/entity/SkGoods.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/redis/OrderKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/redis/OrderKey.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/service/impl/SkGoodsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/service/impl/SkGoodsServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/service/impl/SkOrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/service/impl/SkOrderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/dao/SkUserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/dao/SkUserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/redis/RedisService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/redis/RedisService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/service/SecKillService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/service/SecKillService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/service/SkGoodsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/service/SkGoodsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/service/SkUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/service/SkUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/service/impl/SecKillServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/service/impl/SecKillServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/service/impl/SkUserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/service/impl/SkUserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/util/RedisUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/util/RedisUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/util/ValidUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/util/ValidUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/log4j.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/log4j.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/SkGoodsDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/SkGoodsDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/config/ShiroConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/config/ShiroConfig.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/controller/SecKillController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/controller/SecKillController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/service/impl/SkGoodsServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/service/impl/SkGoodsServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/service/impl/SkOrderServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/service/impl/SkOrderServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/redis/RedisService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/redis/RedisService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/log4j.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/log4j.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/mapper/SkGoodsDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/SkGoodsDao.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -52,6 +61,20 @@
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="seckill: schema" type="76f4a085:MysqlImplModel$Schema" />
       </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="seckill@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="seckill: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="sk_goods: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="seckill@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="seckill: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="sk_goods_seckill: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
     </expand>
     <select />
   </component>
@@ -87,7 +110,10 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Fork/b2strysk/seckill-master" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="project.propCompiler" />
   </component>
@@ -96,11 +122,11 @@
       <recent name="F:\GithubFile\SecondKill\src\main\resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.lucius.secondkill.redis" />
       <recent name="com.lucius.secondkill.vo" />
       <recent name="com.lucius.secondkill.config" />
       <recent name="com.lucius.secondkill.service" />
       <recent name="com.lucius.secondkill.controller" />
-      <recent name="com.lucius.secondkill.entity" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\GithubFile\SecondKill\src\main\resources\templates" />
@@ -303,6 +329,7 @@
       <workItem from="1590655413848" duration="9091000" />
       <workItem from="1590669817248" duration="43505000" />
       <workItem from="1590890243010" duration="45486000" />
+      <workItem from="1591101427612" duration="240000" />
     </task>
     <servers />
   </component>
