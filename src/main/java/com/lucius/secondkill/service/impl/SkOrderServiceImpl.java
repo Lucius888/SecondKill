@@ -48,6 +48,11 @@ public class SkOrderServiceImpl implements SkOrderService {
         return skOrder;
     }
 
+    @Override
+    public SkOrderInfo queryOrderinfoByorderId(long orderId) {
+        return skOrderInfoDao.queryById(orderId);
+    }
+
 
     /**
      * 生成订单,事务

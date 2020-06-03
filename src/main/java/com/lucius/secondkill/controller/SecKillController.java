@@ -130,7 +130,7 @@ public class SecKillController implements InitializingBean {
 
 
     /**
-     * 改进版本：添加rabbitmq
+     * 改进版本：添加rabbitmq,前端进行轮询
      * 秒杀按钮跳转界面
      * @return
      */
@@ -166,9 +166,15 @@ public class SecKillController implements InitializingBean {
         seckillMessage.setUser(user);
         seckillMessage.setGoodsId(goodsId);
         mqSender.sendSeckillMessage(seckillMessage);
+
+        System.out.println("==================");
+        System.out.println("入队成功返回状态码");
         //0代表入队成功，排队中
         return Result.success(0);
     }
+
+
+
 
     /**
      * 缓存与预热：
@@ -193,7 +199,7 @@ public class SecKillController implements InitializingBean {
      * -1：秒杀失败
      * 0： 排队中
      */
-    @GetMapping(value = "/result")
+    @GetMapping(value = "/seckill/result")
     @ResponseBody
     public Result<Long> seckillResult(Model model,
                                       HttpServletRequest request,

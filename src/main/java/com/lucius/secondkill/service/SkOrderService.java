@@ -20,7 +20,7 @@ public interface SkOrderService {
      */
     SkOrder queryOrderByUserIdAndGoodsId(long userId, long goodsId);
 
-
+    SkOrderInfo queryOrderinfoByorderId(long orderId);
     /**
      * 生成订单
      * @param user

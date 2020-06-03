@@ -126,7 +126,7 @@ public class SkGoodsController {
                                     @PathVariable("goodsId")long goodsId) {
         // 1.取缓存
         // key中包含了商品id用于区分
-        String html = redisService.get(GoodsKey.GoodsDetail, ""+goodsId, String.class);//不同商品页面不同的详情
+        String html = redisService.get(GoodsKey.GoodsDetailHtml, ""+goodsId, String.class);//不同商品页面不同的详情
         if (!StringUtils.isEmpty(html)) {
             return html;
         }

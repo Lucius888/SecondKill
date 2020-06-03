@@ -55,7 +55,8 @@ public class SecKillServiceImpl implements SecKillService {
             //2.下订单,其中有两个订单: order_info   miaosha_order
             SkOrderInfo skOrderInfo= skOrderService.createOrder(user, skGoods);;
             return skOrderInfo;
-        }else {//减少库存失败
+        }else {
+            //秒杀失败
             //做一个标记，代表商品已经秒杀完了。
             redisService.set(SeckillKey.isGoodsOver, ""+skGoods.getId(), true);
             return null;
@@ -64,15 +65,20 @@ public class SecKillServiceImpl implements SecKillService {
 
 
     @Override
+    //获取秒杀结果
     public long getSeckillResult(long userId, long goodsId){
         SkOrder order = skOrderService.queryOrderByUserIdAndGoodsId(userId, goodsId);
+        //秒杀成功，返回订单id
         if (order != null){
             return order.getOrderId();
         }else{
+            //秒杀失败，判断商品是否已经卖完了
             boolean isOver = redisService.hasKey(SeckillKey.isGoodsOver, ""+goodsId);
             if(isOver) {
+                //卖完了
                 return -1;
             }else {
+                //没卖完
                 return 0;
             }
         }

@@ -52,10 +52,17 @@
             </td>
 
             <td>
-                <form id="seckillForm" method="post" action="/seckill/do_seckill" th:if="${seckillStatus eq 1}">
-                    <button class="btn btn-primary btn-block" type="submit" id="buyButton">立即秒杀</button>
-                    <input type="hidden" name="goodsId" th:value="${goods.id}"/>
-                </form>
+<!--                <form id="seckillForm" method="post" action="/seckill/do_seckill" th:if="${seckillStatus eq 1}">-->
+<!--                    <button class="btn btn-primary btn-block" type="submit" id="buyButton">立即秒杀</button>-->
+<!--                    <input type="hidden" name="goodsId" th:value="${goods.id}"/>-->
+<!--                </form>-->
+
+<!--       异步下单，前端轮询获取秒杀结果-->
+            <td>
+                <input type="hidden" id="goodsId"  th:value="${goods.id}"/>
+                <button class="btn btn-primary btn-block" type="button" id="buyButton" onclick="doSeckill()">立即秒杀</button>
+            </td>
+
             </td>
         </tr>
         <tr>
@@ -74,6 +81,63 @@
 </div>
 </body>
 <script>
+
+    function getSeckillResult(goodsId){
+        g_showLoading();
+        $.ajax({
+            url:"/seckill/result",
+            type:"GET",
+            data:{
+                goodsId: goodsId
+            },
+            success:function(data){
+                if(data.code == 0){
+                    var result = data.data;
+                    if(result < 0){
+                        layer.msg("对不起，秒杀失败");
+                    }else if(result == 0){//继续轮询
+                        setTimeout(function(){
+                            getSeckillResult(goodsId);
+                        }, 50);
+                    }else{
+                        layer.confirm("恭喜你，秒杀成功！查看订单？", {btn:["确定","取消"]},
+                            function(){
+                                window.location.href="/seckill/order/"+result;
+                            },
+                            function(){
+                                layer.closeAll();
+                            });
+                    }
+                }else{
+                    layer.msg(data.msg);
+                }
+            },
+            error:function(){
+                layer.msg("客户端请求有误");
+            }
+        });
+    }
+    function doSeckill() {
+        var goodsId = $("#goodsId").val();
+        $.ajax({
+            url: "/seckill/do_seckill",
+            type: "POST",
+            data: {
+                goodsId: goodsId
+            },
+            success: function (data) {
+                if (data.code == 0) {
+                    getSeckillResult(goodsId);
+                } else {
+                    layer.msg(data.msg);
+                }
+            },
+            error: function () {
+                layer.msg("请求有误");
+            }
+        });
+    }
+
     $(function () {
         countDown();
     });
