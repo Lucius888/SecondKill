@@ -17,4 +17,8 @@ import com.lucius.secondkill.entity.SkUser;
 public interface SecKillService {
 
     SkOrderInfo seckill(SkUser user, SkGoods skGoods);
+
+    long getSeckillResult(long userId, long goodsId);
+
+
 }

@@ -173,7 +173,7 @@ public class RedisService {
     public <T> Long decr(KeyPrefix prefix, String key) {
 
         String realKey = prefix.getPrefix() + key;
-        redisTemplate.setValueSerializer(new StringRedisSerializer());
+//        redisTemplate.setValueSerializer(new StringRedisSerializer());
         return redisTemplate.opsForValue().decrement(realKey);
     }
 

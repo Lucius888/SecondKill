@@ -8,8 +8,11 @@ public class GoodsKey extends BasePrefix {
 
     public static GoodsKey GoodsList = new GoodsKey(60, "GoodsList");
     public static GoodsKey GoodsDetail = new GoodsKey(60, "GoodsDetail");
-    public static GoodsKey GoodsStock = new GoodsKey(60, "GoodsStock");
+    public static GoodsKey GoodsStock = new GoodsKey(0, "GoodsStock");
     public static GoodsKey GoodsListHtml = new GoodsKey(60, "GoodsListHtml");
     public static GoodsKey GoodsDetailHtml = new GoodsKey(60, "GoodsDetailHtml");
-    public static GoodsKey GoodsStockHtml = new GoodsKey(60, "GoodsStockHtml");
+
+    public static GoodsKey gs1 = new GoodsKey(0, "gs1");
+
+
 }

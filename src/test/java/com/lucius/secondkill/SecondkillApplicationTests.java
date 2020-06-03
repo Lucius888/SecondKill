@@ -1,9 +1,11 @@
 package com.lucius.secondkill;
 
+import com.lucius.secondkill.redis.GoodsKey;
 import com.lucius.secondkill.redis.RedisService;
 import com.lucius.secondkill.redis.UserKey;
 import com.lucius.secondkill.service.SkGoodsService;
 import com.lucius.secondkill.service.SkUserService;
+import com.lucius.secondkill.util.RedisConcurrentTestUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,18 +25,23 @@ public class SecondkillApplicationTests {
     @Autowired
     SkGoodsService skGoodsService;
 
+    @Autowired
+    RedisConcurrentTestUtil redisConcurrentTestUtil;
+
     @Test
 
     public void test() {
-        int str=123;
-        //过期时间是在初始化实例的时候设置的
-        //这个组成了redis中真正的key:UserKey:id+aaa
-        redisService.set(UserKey.getById, "aaa", str);
-        System.out.println(redisService.get(UserKey.getById,"aaa",Integer.class));
-        redisService.decr(UserKey.getById,"aaa");
-        System.out.println(redisService.get(UserKey.getById,"aaa",Integer.class));
-        redisService.incr(UserKey.getById,"aaa");
-        System.out.println(redisService.get(UserKey.getById,"aaa",Integer.class));
+//        int str=123;
+//        //过期时间是在初始化实例的时候设置的
+//        //这个组成了redis中真正的key:UserKey:id+aaa
+//        redisService.set(UserKey.getById, "aaa", str);
+//        System.out.println(redisService.get(UserKey.getById,"aaa",Integer.class));
+//        redisService.decr(UserKey.getById,"aaa");
+//        System.out.println(redisService.get(UserKey.getById,"aaa",Integer.class));
+//        redisService.incr(UserKey.getById,"aaa");
+//        System.out.println(redisService.get(UserKey.getById,"aaa",Integer.class));
+        redisService.set(GoodsKey.gs1,"",10L);
+        redisConcurrentTestUtil.test();
     }
 
 

@@ -2,28 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="86be132c-78bd-4d97-8389-b173f384c899" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/.gitattributes" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sql/seckill.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sql/seckill.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/config/RedisCacheConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/config/RedisCacheConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/rabbitmq/MQConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/rabbitmq/MQReceiver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/rabbitmq/MQSender.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/rabbitmq/SeckillMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/util/RedisConcurrentTestUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/controller/SecKillController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/controller/SecKillController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/controller/SkGoodsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/controller/SkGoodsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/dao/SkGoodsDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/dao/SkGoodsDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/dao/SkUserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/dao/SkUserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/redis/GoodsKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/redis/GoodsKey.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/redis/RedisService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/redis/RedisService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/service/SecKillService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/service/SecKillService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/service/SkGoodsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/service/SkGoodsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/service/SkUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/service/SkUserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/service/impl/SecKillServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/service/impl/SecKillServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/service/impl/SkUserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/service/impl/SkUserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/util/RedisUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/util/RedisUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/util/ValidUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/util/ValidUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/log4j.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/log4j.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/SkGoodsDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/SkGoodsDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/lucius/secondkill/SecondkillApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/lucius/secondkill/SecondkillApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application-dev.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/controller/SecKillController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/controller/SecKillController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/redis/GoodsKey.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/redis/GoodsKey.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/redis/RedisService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/redis/RedisService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/log4j.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/log4j.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/SkGoodsDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/SkGoodsDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/service/SecKillService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/service/SecKillService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/service/impl/SecKillServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/service/impl/SecKillServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/lucius/secondkill/SecondkillApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/lucius/secondkill/SecondkillApplicationTests.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -110,7 +108,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/lucius/secondkill" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -122,18 +120,18 @@
       <recent name="F:\GithubFile\SecondKill\src\main\resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.lucius.secondkill.rabbitmq" />
       <recent name="com.lucius.secondkill.redis" />
       <recent name="com.lucius.secondkill.vo" />
       <recent name="com.lucius.secondkill.config" />
       <recent name="com.lucius.secondkill.service" />
-      <recent name="com.lucius.secondkill.controller" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\GithubFile\SecondKill\src\main\java\com\lucius\secondkill" />
       <recent name="F:\GithubFile\SecondKill\src\main\resources\templates" />
       <recent name="F:\GithubFile\SecondKill\src\main\java\com\lucius\secondkill\config" />
       <recent name="F:\GithubFile\SecondKill\src\main\resources\static" />
       <recent name="F:\GithubFile\SecondKill\src\main\resources" />
-      <recent name="F:\GithubFile\SecondKill\src\main\java\com\lucius\secondkill\redis" />
     </key>
   </component>
   <component name="RestClientSettings">

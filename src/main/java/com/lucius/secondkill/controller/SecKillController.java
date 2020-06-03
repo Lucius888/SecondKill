@@ -12,25 +12,23 @@ package com.lucius.secondkill.controller;
 
 import com.lucius.secondkill.entity.SkGoods;
 import com.lucius.secondkill.entity.SkOrder;
-import com.lucius.secondkill.entity.SkOrderInfo;
 import com.lucius.secondkill.entity.SkUser;
+import com.lucius.secondkill.rabbitmq.MQSender;
+import com.lucius.secondkill.rabbitmq.SeckillMessage;
 import com.lucius.secondkill.redis.GoodsKey;
-import com.lucius.secondkill.redis.OrderKey;
 import com.lucius.secondkill.redis.RedisService;
 import com.lucius.secondkill.result.CodeMsg;
+import com.lucius.secondkill.result.Result;
 import com.lucius.secondkill.service.SecKillService;
 import com.lucius.secondkill.service.SkGoodsService;
 import com.lucius.secondkill.service.SkOrderService;
 import com.lucius.secondkill.service.SkUserService;
-import org.apache.commons.lang3.StringUtils;
+import com.lucius.secondkill.util.RedisConcurrentTestUtil;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.thymeleaf.context.WebContext;
+import org.springframework.web.bind.annotation.*;
 import org.thymeleaf.TemplateEngine;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -56,6 +54,23 @@ public class SecKillController implements InitializingBean {
 
     @Autowired
     RedisService redisService;
+
+
+    @Autowired
+    MQSender mqSender;
+
+    @Autowired
+    RedisConcurrentTestUtil redisConcurrentTestUtil;
+
+    @RequestMapping(value = "/test")
+    @ResponseBody
+    public Result<Object> test(){
+        redisConcurrentTestUtil.test();
+        return Result.success(true);
+    }
+
+
+
 
     /**初始版本
      * 秒杀按钮跳转界面
@@ -117,42 +132,42 @@ public class SecKillController implements InitializingBean {
     /**
      * 改进版本：添加rabbitmq
      * 秒杀按钮跳转界面
+     * @return
      */
     @PostMapping(value = "/seckill/do_seckill")
-    public String list(Model model,
-                       HttpServletResponse response,
-                       @RequestParam("goodsId") long goodsId,
-                       HttpServletRequest request) {
+    @ResponseBody
+    public Result<Object> list(Model model,
+                               HttpServletResponse response,
+                               @RequestParam("goodsId") long goodsId,
+                               HttpServletRequest request) {
         //1.首先判断用户信息，失效就重新登录
         SkUser user = (SkUser) request.getSession().getAttribute("User");
         if (user == null) {
-            return "login";
+            return Result.error(CodeMsg.SESSION_ERROR);
         }
         //2.预减少库存，减少redis里面的库存
         long stock=redisService.decr(GoodsKey.GoodsStock,""+goodsId);
         //3.判断减少数量1之后的stock，区别于查数据库时候的stock<=0
         if(stock<0) {
             //商品库存不足秒杀失败
-            model.addAttribute("errorMessage", CodeMsg.SECKILL_OVER);
-            return "seckill_fail";
+//            model.addAttribute("errorMessage", CodeMsg.SECKILL_OVER);
+            return Result.error(CodeMsg.SECKILL_OVER);
         }
 
         SkGoods skGoods = skGoodsService.getGoodsByGoodsId(goodsId);
         //判断这个秒杀订单形成没有，判断是否已经秒杀到了，避免一个账户秒杀多个商品
         SkOrder order = skOrderService.queryOrderByUserIdAndGoodsId(user.getId(), goodsId);
         if (order != null) {//重复下单
-            model.addAttribute("errorMessage", CodeMsg.REPEATE_SECKILL);
-            return "seckill_fail";
+//            model.addAttribute("errorMessage", CodeMsg.REPEATE_SECKILL);
+            return Result.error(CodeMsg.REPEATE_SECKILL);
         }
-        //可以秒杀，原子操作：1.库存减1，2.下订单，3.写入秒杀订单--->是一个事务
-        SkOrderInfo orderinfo = secKillService.seckill(user, skGoods);
-
-        //如果秒杀成功，直接跳转到订单详情页上去。
-        model.addAttribute("orderinfo", orderinfo);
-        model.addAttribute("goods", skGoods);
-        //没有做支付业务，当生成订单的时候就当作是已经秒杀到了。
-
-        return "order_detail";
+        //5.正常请求，入队，发送一个秒杀message到队列里面去，入队之后客户端应该进行轮询。
+        SeckillMessage seckillMessage=new SeckillMessage();
+        seckillMessage.setUser(user);
+        seckillMessage.setGoodsId(goodsId);
+        mqSender.sendSeckillMessage(seckillMessage);
+        //0代表入队成功，排队中
+        return Result.success(0);
     }
 
     /**
@@ -171,6 +186,25 @@ public class SecKillController implements InitializingBean {
             redisService.set(GoodsKey.GoodsStock, ""+skGoods.getId(), skGoods.getStockCount());
         }
 
+    }
+
+    /**
+     * orderId：成功
+     * -1：秒杀失败
+     * 0： 排队中
+     */
+    @GetMapping(value = "/result")
+    @ResponseBody
+    public Result<Long> seckillResult(Model model,
+                                      HttpServletRequest request,
+                                      @RequestParam("goodsId") long goodsId) {
+        //1.首先判断用户信息，失效就重新登录
+        SkUser user = (SkUser) request.getSession().getAttribute("User");
+        if (user == null) {
+            return Result.error(CodeMsg.SESSION_ERROR);
+        }
+        long orderId = secKillService.getSeckillResult(user.getId(), goodsId);
+        return Result.success(orderId);
     }
 
 }
