@@ -26,4 +26,13 @@ JMeter
 原项目中使用了两次MD5手动加密进行登录管理，显然更加麻烦，在此使用shiro安全框架进行了优化。
 
 ## session共享
-既然使用了shiro，那么必不可能再去像源码那样去共享session,太复杂！
+既然使用了shiro，那么必不可能再去像源码那样去共享session,太复杂！使用shiro-redis插件完成session共享
+
+## 页面静态化
+将页面以html的形式存入redis,当用户刷新页面时直接从reids中取html代码，减少用户对数据库的访问。
+
+## RabbitMQ异步下单
+
+## 图形验证码
+
+## 接口限流防刷
