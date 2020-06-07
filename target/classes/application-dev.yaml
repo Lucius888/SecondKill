@@ -72,16 +72,10 @@ spring:
     virtual-host: /
     #连接超时，单位毫秒，0表示无穷大，不超时
     connection-timeout: 5000
-
-
     template:
       retry:
         #发送重试是否可用
         enabled: false
-        # 第一次和第二次尝试发布或传递消息之间的间隔
-        #initial-interval: 1000
-        #最大重试次数
-        #max-attempts: 3
       receive-timeout: 30000
       reply-timeout: 30000
 

@@ -2,22 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="86be132c-78bd-4d97-8389-b173f384c899" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/controller/SecKillController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/controller/SecKillController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/controller/SkGoodsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/controller/SkGoodsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/controller/SkOrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/controller/SkOrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/result/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/result/Result.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/service/SkOrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/service/SkOrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/service/impl/SecKillServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/service/impl/SecKillServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/service/impl/SkOrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lucius/secondkill/service/impl/SkOrderServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/goods_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/goods_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/controller/SecKillController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/controller/SecKillController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/controller/SkGoodsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/controller/SkGoodsController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/controller/SkOrderController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/controller/SkOrderController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/result/Result.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/result/Result.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/service/SkOrderService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/service/SkOrderService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/service/impl/SecKillServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/service/impl/SecKillServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/service/impl/SkOrderServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lucius/secondkill/service/impl/SkOrderServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/goods_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/goods_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-dev.yaml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -317,6 +304,7 @@
       <workItem from="1590669817248" duration="43505000" />
       <workItem from="1590890243010" duration="45486000" />
       <workItem from="1591101427612" duration="240000" />
+      <workItem from="1591515162594" duration="2424000" />
     </task>
     <servers />
   </component>

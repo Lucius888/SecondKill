@@ -166,9 +166,6 @@ public class SecKillController implements InitializingBean {
         seckillMessage.setUser(user);
         seckillMessage.setGoodsId(goodsId);
         mqSender.sendSeckillMessage(seckillMessage);
-
-        System.out.println("==================");
-        System.out.println("入队成功返回状态码");
         //0代表入队成功，排队中
         return Result.success(0);
     }
